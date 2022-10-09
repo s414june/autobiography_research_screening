@@ -43,7 +43,7 @@
                 <p>建議瀏覽網頁版，以獲得最佳閱讀體驗</p>
                 <p>連結：</p>
                 <p>
-                    <a href="" class="thisUrl">碩士班履歷-吳雨芩</a>
+                    <a href="" class="thisUrl" target="_blank">碩士班履歷-吳雨芩</a>
                 </p>
                 <p>手機請掃QR CODE：</p>
                 <div class="qrcode">
@@ -84,7 +84,7 @@
         <div class="content-section">
             <section class="page head-place">
                 <h2>自傳</h2>
-                <h4 id="resume" class="no-space blue not-maintitle">簡歷</h4>
+                <h4 id="resume" class="no-space blue">簡歷</h4>
                 <div class="head-card">
                     <div class="head">
                         <img src="./images/head.jpg" alt="">
@@ -238,7 +238,7 @@
                     <tr>
                         <td class="img-info">
                             <p><small>零碳整合儀錶板</small>
-                            <p><small>(「零碳整合管理系統」前台展示頁面)</small></p>
+                                <p><small>(「零碳整合管理系統」前台展示頁面)</small></p>
                         </td>
                     </tr>
                 </table>
@@ -251,7 +251,7 @@
                     <tr>
                         <td class="img-info">
                             <p><small>零碳整合管理系統</small>
-                            <p><small>(後台管理頁面)</small></p>
+                                <p><small>(後台管理頁面)</small></p>
                         </td>
                     </tr>
                 </table>
@@ -375,9 +375,8 @@
     // getAjaxByUUID(("./jsons/uuidText.json"), md5password, (data) => {
     //     console.log(btoa(unescape(encodeURIComponent(data))))
     // })
-    
+
     getAjaxByUUID_code(("./jsons/uuidText_code.txt"), md5password, (data) => {
-        console.log(data)
         let schoolData = JSON.parse(data);
         if (schoolData != null) {
             appendSchoolDataToHtml(schoolData);
@@ -386,8 +385,8 @@
         }
     })
 
-    document.querySelector(".thisUrl").href = location.href;
-    new QRCode(document.querySelector(".qrcode"), location.href);
+    document.querySelector(".thisUrl").href = location.href.split("#")[0];
+    new QRCode(document.querySelector(".qrcode"), location.href.split("#")[0]);
 
     function appendSchoolDataToHtml(data) {
         try {
@@ -410,9 +409,9 @@
         let directory = document.querySelectorAll("section.page.directory");
         let directory_menu = document.querySelectorAll("section.directory_menu");
         let pageNumEl = document.querySelectorAll("div.page-number");
-        if(directory) directory.forEach((elem) => elem.remove());
-        if(directory_menu) directory_menu.forEach((elem) => elem.remove());
-        if(pageNumEl) pageNumEl.forEach((elem) => elem.remove());
+        if (directory) directory.forEach((elem) => elem.remove());
+        if (directory_menu) directory_menu.forEach((elem) => elem.remove());
+        if (pageNumEl) pageNumEl.forEach((elem) => elem.remove());
 
         if (isPdf) {
             document.querySelectorAll(".pdf-mode-el").forEach(el => {
@@ -433,7 +432,7 @@
         }
         doPages();
         doMenu();
-        if(!isPdf) addSpaceForHash();
+        if (!isPdf) addSpaceForHash();
     }
 
     document.querySelector('.menu-btn').onclick = function(e) {
@@ -443,7 +442,10 @@
     window.onclick = function() {
         document.getElementById('menu').classList.remove('active')
     }
-    console.log("using pdfModeToggle(isPdf) function to change this view mode.");
+    console.log(`在主控台使用pdfModeToggle(isPdf)函數來改變UI模式。
+isPdf為布林值，false時為網頁板，true時為PDF版(可用於A4直式存檔或列印)。
+預設為網頁版。
+使用範例：pdfModeToggle(true)`);
 </script>
 
 </html>

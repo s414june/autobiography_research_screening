@@ -418,7 +418,7 @@ header .header-block p {
     transition: 0.5s;
 }
 
-.html-mode .multi-page h4::before {
+.html-mode h4::before {
     top: 50px;
     transform: translateY(0px);
 }
@@ -520,4 +520,8 @@ body.html-mode .pdf-mode-el{
 
 body.html-mode .html-mode-el{
     display: block;
+}
+
+.no-space{
+    margin: 0;
 }

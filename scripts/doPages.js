@@ -144,7 +144,7 @@ function addSpaceForHash() {
     _s.style.height = '50px'
     _s.classList.add("html-mode-el")
     TitlePage.parentElement.prepend(_s)
-    document.querySelectorAll('[id]:not(.no-space)').forEach((hasIdEl) => {
+    document.querySelectorAll('[id]').forEach((hasIdEl) => {
         let a = document.querySelector("a[href='#" + hasIdEl.id + "']")
         if (a && a != null) {
             let s = document.createElement('span')
