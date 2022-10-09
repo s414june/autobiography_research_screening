@@ -5,7 +5,7 @@
     --colorB: #d298bb;
     --colorA-font: #4e86cf;
     --colorB-font: #d164a5;
-    --pdf-height: 1160;
+    --pdf-height: 1080;
     --pdf-width: 700;
     --vh: 1vh;
 }
@@ -167,19 +167,24 @@ h2 {
 
 .head-card {
     display: flex;
-    padding: 20px 50px;
+    padding: 20px 0;
+    padding-left: 40px;
     width: 100%;
     justify-content: space-around;
+    /* height: 250px; */
 }
 
 .head {
-    width: 100px;
-    overflow: hidden;
+    /* width: 100px; */
+    /* overflow: hidden; */
     position: relative;
+    filter: brightness(1.1) contrast(110%);
+    height: 250px;
 }
 
 .head img {
-    width: 200px;
+    /* width: 250px; */
+    height: 250px;
     transform: translateX(-50%);
     left: 50%;
     position: absolute;
@@ -270,7 +275,7 @@ h2 {
     right: 0;
 }
 
-.content-section {
+.html-mode .content-section {
     padding-bottom: 50px;
 }
 
@@ -418,7 +423,7 @@ header .header-block p {
     transition: 0.5s;
 }
 
-.html-mode h4::before {
+.html-mode h4:not(.not-maintitle)::before {
     top: 50px;
     transform: translateY(0px);
 }
@@ -461,7 +466,8 @@ header .header-block p {
         align-self: start;
     }
     .head-card {
-        padding: 10px 0;
+        padding: 10px 50px;
+        flex-direction: column;
     }
     .page {
         height: fit-content;
@@ -479,6 +485,13 @@ header .header-block p {
     #menu {
         font-size: 1.8em;
         max-width: calc(100% - 30px);
+    }
+    .content-section h4:not(.not-maintitle){
+        margin-left: 50px;
+    }
+    .html-mode h4:not(.not-maintitle)::before{
+        top: 48px;
+        height: 32px;
     }
 }
 

@@ -60,7 +60,7 @@ function doPages() {
                 //16是列印時的留白區高度，
             pageNumEl.style.top =
                 // offsetTop + j * (pdfHeight + 16) + pdfHeight / 2 + 'px'
-                offsetTop + j * (pdfHeight + 16) + pdfHeight / 2 + 'px'
+                offsetTop + j * (pdfHeight + 12) + pdfHeight - 50 + 'px'
             pageNumEl.innerHTML = j + 1
                 // let pageRound = DirectoryOutside.querySelectorAll("small")[j]
                 // pageRound.innerHTML = ((j + 1) < 10 ? "0" + (j + 1) : "" + (j + 1));
