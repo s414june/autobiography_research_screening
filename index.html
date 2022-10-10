@@ -81,7 +81,7 @@
                 </div>
             </section> -->
         </div>
-        <div class="content-section">
+        <div class="content-section" data-minu="300">
             <section class="page head-place">
                 <h2>自傳</h2>
                 <h4 id="resume" class="no-space blue">簡歷</h4>
@@ -268,7 +268,6 @@
                         </td>
                     </tr>
                 </table>
-                <div class="pdf-mode-el" style="height:300px ;"></div>
                 <table class="img">
                     <tr>
                         <td class="img-place">
@@ -473,6 +472,9 @@
 isPdf為布林值，false時為網頁板，true時為PDF版(可用於A4直式存檔或列印)。
 預設為網頁版。
 使用範例：pdfModeToggle(true)`);
+    console.log(`Pdf列印方法:在主控台輸入pdfModeToggle(true)並按下Enter執行後，
+按右鍵->列印(或Ctrl+P)。
+在其他設定->選項裡面，選擇「背景圖形」，即可存為Pdf或列印。`);
 </script>
 
 </html>

@@ -69,7 +69,9 @@ function doPages() {
             j++
             if (i < contentSections.length - 1 && newHeight < 0) {
                 //最後一個
+                let minu = contentSection.dataset.minu;
                 let space = 0 - newHeight - 16
+                if (minu) space -= minu;
                 contentSection.innerHTML +=
                     "<div style='height:" + space + "px' class='space pdf-mode-el'></div>"
             }
@@ -155,6 +157,10 @@ function addSpaceForHash() {
             hasIdEl.prepend(s)
         }
     })
+}
+
+function addSpaceForTable() {
+    document.querySelector(".space-for-table").style.height = "300px";
 }
 
 function CPos(x, y) {
