@@ -49,6 +49,9 @@ function doPages() {
 
     let pageRoundIndex = 0
     contentSections.forEach((contentSection, i) => {
+        if (contentSection.querySelector(".space")) {
+            contentSection.querySelector(".space").remove();
+        }
         //做頁碼
         let height = contentSection.clientHeight
         let newHeight = height
@@ -57,20 +60,19 @@ function doPages() {
             let pageNumEl = document.createElement('div')
             pageNumEl.classList.add('page-number')
             pageNumEl.classList.add('pdf-mode-el')
-                //16是列印時的留白區高度，
             pageNumEl.style.top =
                 // offsetTop + j * (pdfHeight + 16) + pdfHeight / 2 + 'px'
-                offsetTop + j * (pdfHeight + 12) + pdfHeight - 50 + 'px'
+                offsetTop + j * (pdfHeight + 17) + pdfHeight - 4 + 'px'
             pageNumEl.innerHTML = j + 1
                 // let pageRound = DirectoryOutside.querySelectorAll("small")[j]
                 // pageRound.innerHTML = ((j + 1) < 10 ? "0" + (j + 1) : "" + (j + 1));
             document.getElementById('main').appendChild(pageNumEl)
             newHeight = newHeight - pdfHeight
             j++
-            if (i < contentSections.length - 1 && newHeight < 0) {
+            if (i < contentSections.length - 1 && (newHeight + 100) < 0) {
                 //最後一個
                 let minu = contentSection.dataset.minu;
-                let space = 0 - newHeight - 16
+                let space = 0 - newHeight - 32 * i
                 if (minu) space -= minu;
                 contentSection.innerHTML +=
                     "<div style='height:" + space + "px' class='space pdf-mode-el'></div>"
@@ -78,7 +80,6 @@ function doPages() {
         }
         nowContentPage = j
     })
-
     document.querySelector('.contents').innerText = '目錄'
 }
 
