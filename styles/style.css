@@ -49,6 +49,15 @@ h5 {
   align-items: center;
 } */
 
+#main{
+    width: 100%;
+    position: relative;
+}
+
+#main>*{
+    width: 100%;
+}
+
 #TitlePage {
     position: relative;
     display: flex;
@@ -169,22 +178,21 @@ h2 {
     display: flex;
     padding: 20px 0;
     padding-left: 40px;
-    width: 100%;
+    /* width: 100%; */
     justify-content: space-around;
-    /* height: 250px; */
 }
 
 .head {
     /* width: 100px; */
     /* overflow: hidden; */
+    height: 250px;
     position: relative;
     filter: brightness(1.1) contrast(110%);
-    height: 250px;
 }
 
 .head img {
-    /* width: 250px; */
     height: 250px;
+    max-height: 90vw;
     transform: translateX(-50%);
     left: 50%;
     position: absolute;
@@ -445,13 +453,18 @@ header .header-block p {
     .page-number {
         display: none;
     }
-    #main {
-        padding: 0 20px;
+    #main>* {
+        margin: 0 20px;
+        width: calc(100% - 40px);
+        position: relative;
     }
-    .page,
-    .multi-page {
+    #main>* >*{
         width: 100%;
     }
+    /* .page,
+    .multi-page {
+        width: 100%;
+    } */
     .title-circle {
         width: 70vw;
         height: 70vw;
@@ -471,9 +484,20 @@ header .header-block p {
     .experience>div:nth-child(even) {
         align-self: start;
     }
+    .head{
+        height: 200px;
+        max-height: calc(95vw - 100px);
+    }
+    .head img {
+        height: 200px;
+        max-height: calc(95vw - 100px);
+    }
     .head-card {
-        padding: 10px 50px;
+        padding: 10px 20px 10px 40px;
         flex-direction: column;
+    }
+    .person-info{
+        padding-top: 30px;
     }
     .page {
         height: fit-content;
@@ -498,6 +522,9 @@ header .header-block p {
     .html-mode h4:not(.not-maintitle)::before {
         top: 48px;
         height: 32px;
+    }
+    .content-section{
+        width: 100%;
     }
 }
 
@@ -550,7 +577,7 @@ body.html-mode .html-mode-el {
 #MoreWork{
     border-collapse: collapse;
     white-space: nowrap;
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 #MoreWork th,#MoreWork td{
@@ -572,3 +599,20 @@ body.html-mode .html-mode-el {
 #MoreWork a{
    font-size: 0.8em;
 }
+
+/* width */
+#menu::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  #menu::-webkit-scrollbar-track {
+    background: rgba(50, 112, 206, 0.05);
+  }
+   
+  /* Handle */
+  #menu::-webkit-scrollbar-thumb {
+    background-image: linear-gradient( to bottom, rgba(149, 181, 223, 0.7), rgba(210, 152, 187, 0.7));
+    border-radius: 5px;
+    opacity: 0.1;
+  }
